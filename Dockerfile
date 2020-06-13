@@ -12,4 +12,4 @@ RUN dart2native -o backend.exe bin/backend.dart
 FROM gcr.io/distroless/base
 WORKDIR /app
 COPY --from=build /app/backend.exe .
-ENTRYPOINT ["./backend.exe"]
+ENTRYPOINT ["/app/backend.exe"]

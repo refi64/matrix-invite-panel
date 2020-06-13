@@ -2,11 +2,6 @@
 !**/.packages
 !**/pubspec.*
 
-!backend/**/*.dart
-!common/**/*.dart
-
-!frontend/**/*.dart
-!frontend/web/index.html
-!frontend/web/styles.scss
-!frontend/lib/**/*.html
-!frontend/lib/**/*.scss
+!backend/bin
+!backend/lib
+!common/lib
