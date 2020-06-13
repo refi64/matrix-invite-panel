@@ -1,0 +1,15 @@
+<form class="column full-width-input" #form="ngForm" (ngSubmit)="onSubmit()">
+  <div *ngIf="registrationCode != null">
+    <span>Your registration code is:</span>
+    <code #registrationCodeTarget></code>
+    <text-hide-toggle [text]="registrationCode" [target]="registrationCodeTarget"></text-hide-toggle>
+  </div>
+  <material-input *ngIf="registrationCode == null" label="Registration code" required
+    disableControl disableOnProgress [(ngModel)]="model.code" ngControl="code"></material-input>
+  <material-input label="Username" required
+    disableControl disableOnProgress [(ngModel)]="model.username" ngControl="username"></material-input>
+  <material-input label="Password" type="password" requried
+    disableControl disableOnProgress [(ngModel)]="model.password" ngControl="password"></material-input>
+
+  <material-submit raised disableControl disableOnProgress disableWhenInvalid>Sign up</material-submit>
+</form>

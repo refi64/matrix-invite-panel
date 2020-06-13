@@ -1,0 +1,38 @@
+:host {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.invite-data-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  // Required to make the table scroll when shrunk
+  // https://stackoverflow.com/a/31867656/2097780
+  min-height: 0;
+}
+
+.table-wrapper {
+  overflow: auto;
+}
+
+.buttons-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.add-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.refresh-button {
+  align-self: flex-start;
+  margin-top: 24px !important;
+  margin-bottom: 8px !important;
+}

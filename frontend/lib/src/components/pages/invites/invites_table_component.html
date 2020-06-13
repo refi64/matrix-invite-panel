@@ -1,0 +1,5 @@
+<div class="cards">
+  <invite-card
+    *ngFor="let invite of (invitesBloc | bloc).invites; trackBy: trackInvitesByCode"
+    [invite]="invite"></invite-card>
+</div>

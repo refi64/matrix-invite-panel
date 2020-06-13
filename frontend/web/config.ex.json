@@ -1,0 +1,8 @@
+{
+  "backend": "This points to the GRPC-Web proxy, NOT the vanilla GRPC backend, e.g. http://localhost:8081",
+  "homeserver": {
+    "url": "The FULL homeserver URL, e.g. https://matrix.my-homeserver.com",
+    "name": "The homeserver name, like would be in the second half of a full username, e.g. my-homeserver.com",
+    "riot": "This is optional and would be the URL of a self-hosted Riot instance to sign in"
+  }
+}

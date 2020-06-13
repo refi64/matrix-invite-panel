@@ -1,0 +1,20 @@
+<div [ngSwitch]="(registrationBloc | bloc).status">
+  <div class="column" *ngSwitchCase="RegistrationStatus.unregistered">
+    <h2>Register for an account on {{config.homeserver.name}}</h2>
+    <registration-form [registrationCode]="registrationCode"></registration-form>
+  </div>
+
+  <div class="column" *ngSwitchCase="RegistrationStatus.registered">
+    <h2>Welcome to {{config.homeserver.name}}!</h2>
+    <p>Sign in using your favorite client:</p>
+    <ul class="sign-in-list">
+      <li>If it wants a homeserver URL, use: <b>{{config.homeserver.url}}</b></li>
+      <li>If it wants your full username, use:
+        <i>@{{(registrationBloc | bloc).username}}:</i><b>{{config.homeserver.name}}</b></li>
+    </ul>
+    <p *ngIf="config.homeserver.riot != null">
+      You can also sign in using
+      <a [href]="config.homeserver.riot">this server's dedicated Riot instance</a>.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+# The port the backend server runs on
+port: 9090
+# Directory where the Hive database will be stored.
+database_path: storage
+# A secure random secret to sign JWTs.
+jwt_secret: jwt secret here
+# Homeserver information goes here.
+homeserver:
+  # Note that this is the FULL homeserver URL, not just the portion that would
+  # go after a username.
+  url:
+  # This can be found in your homeserver.yaml file.
+  registration_secret:

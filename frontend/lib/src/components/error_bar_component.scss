@@ -1,0 +1,8 @@
+@import 'package:angular_components/css/material/material';
+
+// Adds an "Error" prefix when the snackbar has an error message.
+skawa-snackbar.error ::ng-deep .message::before {
+  content: "Error: ";
+  color: $mat-red;
+  font-weight: bold;
+}

@@ -1,0 +1,24 @@
+@mixin media($devices...) {
+  $tablet-min: 768px;
+  $desktop-min: 1024px;
+
+  $screens: (
+    "mobile": "(max-width: #{$tablet-min - 1})",
+    "tablet": "(min-width: #{$tablet-min}) and (max-width: #{$desktop-min - 1})",
+    "desktop": "(min-width: #{$desktop-min})",
+  );
+
+  $query: "";
+
+  @each $device in $devices {
+    @if ($query != "") {
+      $query: $query + ", ";
+    }
+
+    $query: $query + map-get($screens, $device);
+  }
+
+  @media #{$query} {
+    @content;
+  }
+}

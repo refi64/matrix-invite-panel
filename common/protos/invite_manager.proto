@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+service InviteManager {
+  rpc Login(LoginRequest) returns (google.protobuf.Empty) {}
+
+  rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty) {}
+
+  rpc GenerateInvite(GenerateInviteRequest) returns (GenerateInviteReply) {}
+  rpc ListInvites(google.protobuf.Empty) returns (ListInvitesReply) {}
+  rpc RevokeInvite(RevokeInviteRequest) returns (RevokeInviteReply) {}
+}
+
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message Invite {
+  string code = 1;
+  string description = 2;
+  bool admin = 3;
+  google.protobuf.Timestamp expiration = 4;
+}
+
+message GenerateInviteRequest {
+  string description = 1;
+  bool admin = 2;
+  google.protobuf.Duration expires_after = 3;
+}
+
+message GenerateInviteReply { Invite invite = 1; }
+
+message RevokeInviteRequest { string code = 1; }
+
+message RevokeInviteReply {}
+
+message ListInvitesReply { repeated Invite invites = 1; }

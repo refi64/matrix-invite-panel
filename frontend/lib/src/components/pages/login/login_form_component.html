@@ -1,0 +1,8 @@
+<form class="column full-width-input" #form="ngForm" (ngSubmit)="onSubmit()">
+  <material-input label="Username" required
+    [(ngModel)]="model.username" ngControl="username"></material-input>
+  <material-input label="Password" type="password" requried
+    [(ngModel)]="model.password" ngControl="password"></material-input>
+
+  <material-submit raised disableControl disableOnProgress disableWhenInvalid>Log in</material-submit>
+</form>

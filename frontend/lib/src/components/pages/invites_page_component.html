@@ -1,0 +1,25 @@
+<h2>Manage invites</h2>
+
+<div class="invite-data-holder">
+  <div class="table-wrapper" [ngSwitch]="!isAuthenticated || (invitesBloc | bloc).invites.isEmpty">
+    <p *ngSwitchCase="true" class="center-text">
+      You don't have any invites, click the plus button to create one.
+    </p>
+
+    <invites-table *ngSwitchCase="false"></invites-table>
+  </div>
+
+  <div class="buttons-row">
+    <material-button [disabled]="(statusBloc | bloc).isProgress" (trigger)="onRefresh()">
+      <material-icon icon="refresh"></material-icon> Refresh
+    </material-button>
+
+    <material-button [disabled]="(statusBloc | bloc).isProgress" (trigger)="newInviteDialogVisible = true">
+      <material-icon icon="add"></material-icon> Add
+    </material-button>
+  </div>
+</div>
+
+<new-invite-dialog
+  *ngIf="newInviteDialogVisible"
+  [(visible)]="newInviteDialogVisible"></new-invite-dialog>

@@ -1,0 +1,47 @@
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/mdc_web/card/mdc-card';
+@import 'package:angular_components/material_button/mixins';
+@import 'package:angular_components/material_input/mixins';
+
+@import 'asset:matrix_invite_frontend/web/config';
+
+@import 'utils';
+
+:host {
+  width: 100%;
+}
+
+$buttons: 'material-button[raised]', 'material-fab[raised]';
+
+@each $button in $buttons {
+  @include button-color($button, $accent-text-color);
+  @include button-background-color($button, $accent-color);
+}
+
+@include material-input-theme($accent-color);
+
+@mixin set-card-dimens($device, $width, $height, $max-width: null) {
+  @include media($device) {
+    width: $width;
+    height: $height;
+    @if ($max-width) {
+      max-width: $max-width;
+    } @else {
+      max-width: $width;
+    }
+  }
+}
+
+.mdc-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin: auto;
+
+  padding: 32px;
+
+  @include set-card-dimens("mobile", 80%, 55vh);
+  @include set-card-dimens("tablet", 75%, 65vh);
+  @include set-card-dimens("desktop", 60%, 75vh, 768px);
+}

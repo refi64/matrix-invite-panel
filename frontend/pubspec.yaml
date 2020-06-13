@@ -1,0 +1,75 @@
+name: matrix_invite_frontend
+description: Frontend for matrix-invite-code
+version: 0.1.0
+homepage: https://github.com/refi64/matrix-invite-code
+
+environment:
+  sdk: '>=2.8.1 <3.0.0'
+
+dependencies:
+  angular: ^6.0.0-alpha
+  angular_bloc: ^5.0.0-dev.1
+  angular_components: 0.14.0-alpha
+  angular_forms: ^2.1.4
+  angular_router: ^2.0.0-alpha
+  aspen: ^0.3.0
+  aspen_assets: ^0.3.0
+  json_annotation: ^3.0.1
+  logger: ^0.9.1
+  meta: ^1.1.8
+  skawa_components: ^1.3.3
+  skawa_material_components: ^1.3.3
+  stack_trace: ^1.9.3
+
+  matrix_invite_common:
+    path: ../common
+
+dev_dependencies:
+  angular_test: ^2.4.0
+  aspen_builder: ^0.3.0
+  build_runner: ^1.9.0
+  build_test: ^1.0.0
+  build_web_compilers: ^2.10.0
+  json_serializable: ^3.2.0
+  pedantic: ^1.9.0
+  sass_builder: ^2.1.2
+  test: ^1.6.3
+
+# The testing AngularDart PR doesn't work with angular_components :(
+
+# dependency_overrides:
+#   angular:
+#     git:
+#       url: https://github.com/dart-lang/angular
+#       path: angular
+#       ref: 82A631C974191BF08D860B6FD6B36F61
+
+#   angular_ast:
+#     git:
+#       url: https://github.com/dart-lang/angular
+#       path: angular_ast
+#       ref: 82A631C974191BF08D860B6FD6B36F61
+
+#   angular_compiler:
+#     git:
+#       url: https://github.com/dart-lang/angular
+#       path: angular_compiler
+#       ref: 82A631C974191BF08D860B6FD6B36F61
+
+#   angular_forms:
+#     git:
+#       url: https://github.com/dart-lang/angular
+#       path: angular_forms
+#       ref: 82A631C974191BF08D860B6FD6B36F61
+
+#   angular_router:
+#     git:
+#       url: https://github.com/dart-lang/angular
+#       path: angular_router
+#       ref: 82A631C974191BF08D860B6FD6B36F61
+
+#   angular_test:
+#     git:
+#       url: https://github.com/dart-lang/angular
+#       path: angular_test
+#       ref: 82A631C974191BF08D860B6FD6B36F61

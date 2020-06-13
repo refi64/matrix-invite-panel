@@ -1,0 +1,11 @@
+// The accent color, used for controls and the page background.
+$accent-color: #8e24aa;
+// The text / icon color to use on top of an accented background.
+$accent-text-color: white;
+
+// Two more unused options:
+// - $overlaid-background-color lets you override the page background color.
+// - $overlaid-text-color lets you change the color of the loading text when
+//   displayed directly on the page background.
+// You can also define e.g. a fully custom background by styling the body
+// element yourself in here.

@@ -1,0 +1,24 @@
+<div class="mdc-card">
+  <div class="left-column">
+    <span class="description">{{invite.description}}</span>
+    <span class="small">Expires on: {{invite.expiration}}</span>
+    <span class="small">Code:
+      <code class="code" #inviteCodeTarget></code>
+      <text-hide-toggle
+          disableControl disableOnProgress
+          [text]="invite.code" [target]="inviteCodeTarget"
+          light size="x-small"></text-hide-toggle>
+      <material-button disableControl disableOnProgress clear-size icon (trigger)="onCopy()">
+        <material-icon light size="x-small" icon="link">
+        </material-icon>
+      </material-button>
+    </span>
+    <span *ngIf="invite.isAdmin" class="small"><b>This invite grants admin privileges</b></span>
+  </div>
+
+  <div class="right-column">
+    <material-button disableControl disableOnProgress icon (trigger)="onRevoke()">
+      <material-icon icon="delete_forever"></material-icon>
+    </material-button>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+{
+  "dart.analysisExcludedFolders": [
+    "common/lib/generated"
+  ]
+}

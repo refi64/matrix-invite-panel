@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Simple wrapper so we can have protoc_plugin installed locally.
+exec pub run protoc_plugin "$@"

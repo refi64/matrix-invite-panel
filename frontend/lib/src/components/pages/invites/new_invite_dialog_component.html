@@ -1,0 +1,31 @@
+<modal [(visible)]="visible">
+  <material-dialog>
+    <div header>
+      <h3>Create a new invite</h3>
+      <material-button icon (trigger)="visible = false">
+        <material-icon icon="close"></material-icon>
+      </material-button>
+    </div>
+
+    <form class="column full-width-input" #form="ngForm" (ngSubmit)="onSubmit()">
+      <material-input label="Description" required
+        [(ngModel)]="model.description" ngControl="description"></material-input>
+      <!--
+        TODO: we really should be using a custom input type directive here
+        but I'm not entirely sure the best way to implement that in AngularDart. -->
+      <material-input type="number" checkInteger checkPositive [lowerBound]="1"
+        label="Expires after (hours)" required
+        [ngModel]="model.expiresAfter?.inHours"
+        (change)="updateDuration($event)"
+        ngControl="expiresAfter">
+      </material-input>
+      <material-checkbox [(ngModel)]="model.isAdmin" ngControl="isAdmin">Give admin privileges?</material-checkbox>
+
+      <material-submit clear-size disableControl disableOnProgress disableWhenInvalid>Create</material-submit>
+    </form>
+
+    <div footer>
+      <div class="submit-placeholder"></div>
+    </div>
+  </material-dialog>
+</modal>

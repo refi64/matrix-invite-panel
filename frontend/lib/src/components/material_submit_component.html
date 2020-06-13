@@ -1,0 +1,7 @@
+<button type="submit">
+  <material-button #button
+      [disabled]="disabled" [raised]="raised" [role]="role" [tabbable]="tabbable" [tabindex]="tabIndex"
+      (trigger)="form.onSubmit($event)">
+    <ng-content></ng-content>
+  </material-button>
+</button>

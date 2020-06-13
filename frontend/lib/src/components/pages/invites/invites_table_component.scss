@@ -1,0 +1,21 @@
+::ng-deep {
+  .padded-table-column, .padded-table-column--header {
+    padding-right: 16px;
+    white-space: nowrap;
+  }
+
+  .unpadded-table-column, .unpadded-table-column--header {
+    padding: 0 16px !important;
+    text-align: center !important;
+    white-space: nowrap;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+
+  invite-card {
+    margin: 5px;
+  }
+}

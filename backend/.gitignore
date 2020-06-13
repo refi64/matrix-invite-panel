@@ -1,0 +1,9 @@
+# Storage folder for testing the server
+storage/
+
+# Config files
+config*.yaml
+!config.ex.yaml
+
+# Any dart2native executables
+*.exe
