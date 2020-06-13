@@ -5,7 +5,7 @@ WORKDIR /app
 ADD backend/pubspec.* /app/
 ADD common /common
 RUN pub get
-ADD backend /app
+ADD backend /app/
 RUN pub get --offline
 RUN dart2native -o backend.exe bin/backend.dart
 
