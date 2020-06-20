@@ -66,12 +66,31 @@ instead. I have Docker images built nightly
 at `gcr.io/refi64/grpcwebproxy`, or you can build and run it yourself. The arguments
 are documented at the grpcwebproxy page.
 
+#### Reverse proxies
+
+If you're using a reverse proxy, you need to do the following:
+
+- Make sure it has CORS enabled.
+- Make sure it has authorization to forward all the special gRPC and matrix-invite-panel headers:
+
+  ```
+  auth-jwt,X-Grpc-Web,X-User-Agent
+  ```
+
 #### Rate limiting
 
 It's recommended to have some form of rate limiting in front of grpcwebproxy, e.g.
 50 requests per minute, to avoid having people trying to hammer the login forms.
 How you do this is up to you; as I generally use k8s, my preference would be using
 the NGINX ingress controller's built-in rate limiting functionality.
+
+The configuration I currently use is:
+
+```yaml
+nginx.ingress.kubernetes.io/limit-connections: "2"
+nginx.ingress.kubernetes.io/limit-rpm: "70"
+nginx.ingress.kubernetes.io/limit-rps: "5"
+```
 
 ### Frontend
 
@@ -181,3 +200,27 @@ Your frontend config may then look like:
   }
 }
 ```
+
+Then, the `firebase.json` might be a bit like this:
+
+```json
+{
+  "hosting": {
+    "public": "frontend/build",
+    "ignore": [
+      "config.ex.json",
+      "config.ex.scss",
+      "packages/**",
+      "**/.*"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
+```
+
+The "rewrites" section is what sets up the SPA-style routing.
